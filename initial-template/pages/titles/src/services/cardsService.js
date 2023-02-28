@@ -13,15 +13,6 @@ export default class CardService {
     const titles = this.#database
       .filter(({ title }) => !!keyword ? title.toLowerCase().includes(keyword.toLowerCase()) : true)
 
-    if (keyword) {
-      console.log('activating blocking operation...')
-      console.time('blocking-op')
-      // blocking function
-      // 1e5 = 100.000
-      for (let counter = 0; counter < 1e5; counter++) console.log('.')
-      console.timeEnd('blocking-op')
-    }
-
     const cards = titles.map(item => {
       return {
         background: item.imageUrl,
